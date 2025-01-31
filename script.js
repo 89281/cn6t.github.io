@@ -1,45 +1,45 @@
-// Theme Switcher
+
 document.addEventListener('DOMContentLoaded', () => {
     const themeSwitcher = document.querySelector('.theme-switcher');
     const themeButton = document.querySelector('.theme-button');
     const themeOptions = document.querySelectorAll('.theme-option');
 
-    // Check if user is admin (you can set this using localStorage)
+
     const isAdmin = localStorage.getItem('isAdmin') === 'true';
     if (!isAdmin) {
         themeSwitcher.style.display = 'none';
     }
 
-    // Add admin key press combination (Ctrl + Shift + A)
+
     document.addEventListener('keydown', (e) => {
         if (e.ctrlKey && e.shiftKey && e.key === 'A') {
             localStorage.setItem('isAdmin', 'true');
             themeSwitcher.style.display = 'block';
         }
-        // Remove admin access with Ctrl + Shift + R
+
         if (e.ctrlKey && e.shiftKey && e.key === 'R') {
             localStorage.setItem('isAdmin', 'false');
             themeSwitcher.style.display = 'none';
         }
     });
 
-    // Set initial theme from localStorage or default to purple
+
     const currentTheme = localStorage.getItem('theme') || 'purple';
     document.documentElement.setAttribute('data-theme', currentTheme);
 
-    // Toggle theme options panel
+
     themeButton.addEventListener('click', () => {
         themeSwitcher.classList.toggle('active');
     });
 
-    // Close theme options when clicking outside
+
     document.addEventListener('click', (e) => {
         if (!themeSwitcher.contains(e.target)) {
             themeSwitcher.classList.remove('active');
         }
     });
 
-    // Handle theme selection
+
     themeOptions.forEach(option => {
         option.addEventListener('click', () => {
             const theme = option.getAttribute('data-theme');
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Navigation active state
+
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section');
@@ -71,7 +71,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add parallax effect to hero section
+
 window.addEventListener('scroll', () => {
     const hero = document.querySelector('.hero');
     if (hero) {
@@ -80,7 +80,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animate features on scroll
+
 const features = document.querySelectorAll('.feature');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -98,7 +98,7 @@ features.forEach(feature => {
     observer.observe(feature);
 });
 
-// Add hover effect to team members
+
 const members = document.querySelectorAll('.member');
 members.forEach(member => {
     member.addEventListener('mouseenter', () => {
@@ -109,14 +109,14 @@ members.forEach(member => {
     });
 });
 
-// Cursor animation
+
 document.addEventListener('mousemove', (e) => {
     const cursor = document.querySelector('.cursor');
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 });
 
-// Smooth scroll for navigation links
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -126,7 +126,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add scroll animations
+
 window.addEventListener('scroll', () => {
     const cards = document.querySelectorAll('.feature-card');
     cards.forEach(card => {
@@ -139,7 +139,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add hover effects for team cards
+
 const teamCards = document.querySelectorAll('.team-card');
 teamCards.forEach(card => {
     card.addEventListener('mouseenter', () => {
