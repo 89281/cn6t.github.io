@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="purple">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality DH - Ultimate Da Hood Community</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        window.onload = function() {
+            const enterScreen = document.getElementById('enterScreen');
+            const mainContent = document.getElementById('mainContent');
+            const enterBtn = document.getElementById('enterBtn');
+            const bgMusic = document.createElement('audio');
+            
+            bgMusic.id = 'bgMusic';
+            bgMusic.loop = true;
+            bgMusic.volume = 1.0;
+            bgMusic.innerHTML = '<source src="music/background.mp3" type="audio/mp3">';
+            document.body.appendChild(bgMusic);
+
+            enterBtn.addEventListener('click', () => {
+                enterScreen.style.opacity = '0';
+                mainContent.style.filter = 'none';
+                bgMusic.play();
+                setTimeout(() => {
+                    enterScreen.style.display = 'none';
+                }, 1000);
+            });
+            
+            const musicControl = document.createElement('div');
+            musicControl.id = 'musicControl';
+            musicControl.className = 'music-control';
+            musicControl.innerHTML = '<i class="fas fa-volume-up"></i>';
+            document.body.appendChild(musicControl);
+            
+            musicControl.onclick = function() {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicControl.querySelector('i').className = 'fas fa-volume-up';
+                    musicControl.classList.remove('muted');
+                } else {
+                    bgMusic.pause();
+                    musicControl.querySelector('i').className = 'fas fa-volume-mute';
+                    musicControl.classList.add('muted');
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="enterScreen" class="enter-screen">
+        <button id="enterBtn" class="enter-btn">
+            <span class="glitch-text" data-text="ENTER">ENTER</span>
+        </button>
+    </div>
+    <div id="mainContent" class="main-content blur">
+        <div class="cursor"></div>
+        <nav>
+            <div class="nav-content">
+                <div class="logo">
+                    <h1 class="gradient-text">QUALITY<span>DH</span></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="https://discord.gg/qualitydh" class="join-nav">Join Us</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="home" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="glitch" data-text="QUALITY DH">QUALITY DH</h1>
+                <p class="hero-subtitle">Ultimate Da Hood Community</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">500+</span>
+                        <span class="stat-label">MEMBERS</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">24/7</span>
+                        <span class="stat-label">ACTIVE</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">#1</span>
+                        <span class="stat-label">DH SERVER</span>
+                    </div>
+                </div>
+                <a href="https://discord.gg/qualitydh" class="cta-btn">
+                    <i class="fab fa-discord"></i>
+                    Join Discord
+                </a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2 class="section-title">Server Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Pro Players</h3>
+                    <p>Learn from the best Da Hood players in the community</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Crew System</h3>
+                    <p>Join elite crews and dominate the streets together</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Weekly Tournaments</h3>
+                    <p>Compete in our weekly Da Hood tournaments for massive cash prizes and exclusive roles</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Active Community</h3>
+                    <p>Join our 500+ members in daily events, raids, and crew activities</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="team">
+            <h2 class="section-title">Server Owner</h2>
+            <div class="team-grid">
+                <div class="team-card owner">
+                    <div class="card-blur"></div>
+                    <div class="member-img">
+                        <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-4DA5BBF978FF595835F8A34718E9725D-Png/150/150/AvatarHeadshot/Webp/noFilter" alt="Owner">
+                    </div>
+                    <div class="member-info">
+                        <h3>Quality DH</h3>
+                        <span class="role">Server Owner</span>
+                        <p class="member-stats">
+                        </p>
+                        <div class="social-links">
+                            <a href="https://discord.gg/quality" class="discord-link">
+                            </a>
+                            <a href="https://www.roblox.com/users/443039253/profile" class="roblox-link">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="join" class="join">
+            <div class="join-content">
+                <h2>Ready to Join the Crew?</h2>
+                <p>Be part of the most powerful Da Hood community</p>
+                <div class="join-buttons">
+                    <a href="https://discord.gg/qualitydh" class="discord-btn pulse">
+                        <i class="fab fa-discord"></i>
+                        <span>Join Discord</span>
+                    </a>
+                </div>
+                <div class="benefits">
+                    <div class="benefit">
+                        <i class="fas fa-check"></i>
+                        <span>Active Community</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-check"></i>
+                        <span>Pro Tips</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
